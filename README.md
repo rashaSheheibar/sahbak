@@ -15,4 +15,4 @@ Developing a mobile app that serves as a leading platform for youth job search i
 
 # Disclaimer
 
-The project is developed as part of the requirements for BS.C degree software engineering at the  [a relative link](another-page.md) software engineering department - Azrieli College of Engineering, Jerusalem, Israel.
+The project is developed as part of the requirements for BS.C degree software engineering at the  [software engineering department ](https://www.jce.ac.il/) - Azrieli College of Engineering, Jerusalem, Israel.
