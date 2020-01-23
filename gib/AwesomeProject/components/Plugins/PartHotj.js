@@ -3,10 +3,9 @@ import { Platform , StyleSheet, Text, Button, Image ,Alert, View,FlatList, TextI
 import { Icon,SocialIcon } from 'react-native-elements'
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
-import Logo from './Logo';
+import Logo from '../Pages/Logo';
 import SearchEng from '../Plugins/SearchEngine'
 import Footer from '../Plugins/Footer'
-import MenuC from '../Plugins/Menu'
 import Topic from '../Plugins/Topics'
 
 
@@ -34,7 +33,7 @@ const DATA = [
   },
 ];
 
-function Item({ title, descriptionForJob ,descriptionForTermsAndBenefits}) {
+function Item({ title}) {
   return (
     
     <View style={styles.item}>
@@ -52,6 +51,7 @@ function Item({ title, descriptionForJob ,descriptionForTermsAndBenefits}) {
         <Image
                 style={{width:'100%',flex:1,paddingTop:0,borderTopLeftRadius:10,borderTopRightRadius:10}}
                 source={require('../../assets/images/image1.png')}
+            
         />
         <View style={{flex: 1, flexDirection: 'row', alignItems:"center",justifyContent: 'center',padding:10,}}>
           <View >
@@ -69,19 +69,9 @@ function Item({ title, descriptionForJob ,descriptionForTermsAndBenefits}) {
         </View>
         <View  style={{alignItems:"flex-end"}}>
           <Text style={styles.title}>{title}</Text>
-          <Text  style={styles.jobDescription}> תיאור תפקיד:</Text>
-          <Text  style={styles.description}> {descriptionForJob}  </Text>
-          <Text  style={styles.jobDescription}>תנאים והטבות:</Text>
-          <Text  style={styles.description}> {descriptionForTermsAndBenefits}  </Text>
-          <Text  style={styles.jobDescription}>כישורים נדרשים:</Text>
-          <Text  style={styles.description}>כולת עמידה בלחץ ורבוי משימות</Text>
-          <Text  style={styles.description}>אנגלית ברמה טובה-יתרון</Text>
-          <Text  style={styles.description}>הופעה ייצוגית</Text>
-          <Text  style={styles.description}> התחייבות לחצי שנת עבודה </Text>
-          <Text  style={styles.description}>תודעת שירות עבודה</Text>
-          <Text  style={styles.description}>גביית תשלום במידת הצורך </Text>
+          
        </View>
-       <View style={{flex: 1, flexDirection: "row-reverse",padding:5}}>
+       <View style={{ paddingTop:25,flex: 1, flexDirection: "row-reverse",padding:5}}>
           <View style={{width:"10%", alignItems:"flex-end"}}>
                   <Icon
                       name='room'
@@ -112,8 +102,8 @@ function Item({ title, descriptionForJob ,descriptionForTermsAndBenefits}) {
           </View>
       </View>
 
-      <View style={{flex: 1, flexDirection: "row-reverse",padding:10}}>
-          <View  style={{width:"30%", alignItems:"center"}}>
+      <View style={{flex: 1, flexDirection: "row-reverse",padding:15}}>
+          <View  style={{width:"40%", alignItems:"center",paddingStart:5}}>
                   <Text style={styles.TextWithBorders}> פרטים נוספים</Text>
               
           </View>
@@ -141,71 +131,23 @@ function Item({ title, descriptionForJob ,descriptionForTermsAndBenefits}) {
 
 
 
-export default class HotJobs extends React.Component {
+export default class PartHotj extends React.Component {
     constructor(props){
-        super(props)
-        /*
-        url ="https://jobus.herokuapp.com/joblist"
-        this.sendAjaxRequest(url)*/
-      
+        super(props) 
     }
   
-   // sendAjaxRequest = (Url) =>{
-      /**
-       * ajax request to turn on/off devices
-       */
-      
-    /*    
-      
-      fetch(Url, {
-          method: 'GET',
-          headers: new Headers({
-              'Content-Type': 'application/JSON', // <-- Specifying the Content-Type
-          }),
-          // body: JSON.stringify({}) // <-- Post parameters
-      })
-      .then((response) =>response.json())
-      .then((responseText) => {
-           console.log(responseText.jobs)
-      })
-      .catch((error) => {
-          console.log(error)
-      });
-  }
-  */
+   
     render() {
         return (
+         
           <View style={styles.container}>
-            <LinearGradient
-                    colors={['rgba(0, 120, 255,0.9)', 'transparent']}
-                    style={{
-                      position: 'absolute',
-                      left: 0,
-                      right: 0,
-                      top: 0,
-                      height: "100%",
-                    }}
-                  />
-              <View style={{ width:'100%',height:60,flexDirection: 'row-reverse'  }}>
-                    
-                    <View style={{width:'60%', justifyContent: 'flex-end' }} >
-                        <Logo/>
-
-                    </View>
-                
-                    <View style={{width:'40%', justifyContent: 'flex-start' }} >      
-                            <MenuC/>
-                    </View>
-               </View>
-            <ScrollView>
-            <SearchEng/>
-            <Topic/>
-
             
+           
+
             <FlatList
                 style={{backgroundColor:'white'}}
                 data={DATA}
-                renderItem={({ item }) => <Item  title={item.title} descriptionForJob={item.descriptionForJob} descriptionForTermsAndBenefits={item.descriptionForTermsAndBenefits}   />}
+                renderItem={({ item }) => <Item  title={item.title}  />}
                 keyExtractor={item => item.id}
                 
             />
@@ -220,12 +162,11 @@ export default class HotJobs extends React.Component {
                       </View>          
             </View>
            
-            <Footer/>
-              
-            </ScrollView>
-            
+           
             
           </View>
+         
+        
           
         );
         }

@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
       container:{
         flexDirection:"column",
         alignContent:"flex-end",
-        paddingTop:10,   
+         
       },
       SocialIconInstgram:{
         padding:-1,

@@ -4,8 +4,11 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import MainTabNavigator from './MainTabNavigator';
 import LoginPageC from '../components/Pages/LogIn'
+import SuccessfulConectC from '../components/Pages/SuccessfulConect'
 import HotJobC from '../components/Pages/HotJobs'
-
+import ConectC from '../components/Pages/Conect'
+import CoursesC from '../components/Pages/Courses'
+import FavoritsC from '../components/Pages/Favorits'
 
 const AppNavigator = createStackNavigator({
   LoginPage: {
@@ -13,9 +16,23 @@ const AppNavigator = createStackNavigator({
   },
   HotJobPage:{
     screen:HotJobC
+  },
+  CoursesPage:{
+    screen:CoursesC
+  },
+  FavoritsPage:{
+    screen:FavoritsC
+  },
+  
+  SuccessfulConectPage:{
+    screen:SuccessfulConectC
+  },
+  
+  ConectPage:{
+    screen:ConectC
   }
 },{
-  initialRouteName: 'LoginPage',
+  initialRouteName: 'ConectPage',
 })
 /*
 export default createAppContainer(
