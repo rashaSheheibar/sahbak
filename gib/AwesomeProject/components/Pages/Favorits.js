@@ -83,9 +83,8 @@ OnPresHere(){
                     <TopicC/>
                     <HotJobsPartp/>
                     <Footer/>
-
                 </ScrollView>         
-           
+               
     </View>
    
       );

@@ -32,7 +32,7 @@ const AppNavigator = createStackNavigator({
     screen:ConectC
   }
 },{
-  initialRouteName: 'ConectPage',
+  initialRouteName: 'CoursesPage',
 })
 /*
 export default createAppContainer(

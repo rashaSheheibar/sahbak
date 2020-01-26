@@ -34,7 +34,7 @@ export default class Courses extends React.Component {
                       left: 0,
                       right: 0,
                       top: 0,
-                      height: "100%",
+                      height: "50%",
                     }}
                   /> 
             <View style={{ width:'100%',height:60,flexDirection: 'row-reverse'  }}>
@@ -70,8 +70,8 @@ export default class Courses extends React.Component {
             <TopicC/>
             <HotJobsPartp/>
             <Footer/>
-
             </ScrollView>
+            
             
            
 
