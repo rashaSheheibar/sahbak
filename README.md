@@ -16,3 +16,7 @@ Developing a mobile app that serves as a leading platform for youth job search i
 # Disclaimer
 
 The project is developed as part of the requirements for BS.C degree software engineering at the  [software engineering department ](https://www.jce.ac.il/) - Azrieli College of Engineering, Jerusalem, Israel.
+
+
+# Video
+ [Click here to see the Video about Alpha report ](https://www.youtube.com/watch?v=2JUk_EGvxc8&feature=youtu.be)
