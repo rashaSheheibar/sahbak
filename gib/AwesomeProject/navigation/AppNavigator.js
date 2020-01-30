@@ -9,7 +9,7 @@ import HotJobC from '../components/Pages/HotJobs'
 import ConectC from '../components/Pages/Conect'
 import CoursesC from '../components/Pages/Courses'
 import FavoritsC from '../components/Pages/Favorits'
-
+import ContactUsC from '../components/Pages/ContactUs'
 const AppNavigator = createStackNavigator({
   LoginPage: {
     screen: LoginPageC,
@@ -20,10 +20,12 @@ const AppNavigator = createStackNavigator({
   CoursesPage:{
     screen:CoursesC
   },
+  ContactUsPage:{
+    screen:ContactUsC
+  },
   FavoritsPage:{
     screen:FavoritsC
   },
-  
   SuccessfulConectPage:{
     screen:SuccessfulConectC
   },
@@ -32,7 +34,7 @@ const AppNavigator = createStackNavigator({
     screen:ConectC
   }
 },{
-  initialRouteName: 'CoursesPage',
+  initialRouteName: 'ConectPage',
 })
 /*
 export default createAppContainer(
