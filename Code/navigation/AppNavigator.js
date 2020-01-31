@@ -3,13 +3,15 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
 import MainTabNavigator from './MainTabNavigator';
-import LoginPageC from '../components/Pages/LogIn'
-import SuccessfulConectC from '../components/Pages/SuccessfulConect'
-import HotJobC from '../components/Pages/HotJobs'
-import ConectC from '../components/Pages/Conect'
-import CoursesC from '../components/Pages/Courses'
-import FavoritsC from '../components/Pages/Favorits'
-import ContactUsC from '../components/Pages/ContactUs'
+import LoginPageC from '../components/Pages/LogIn';
+import SuccessfulConectC from '../components/Pages/SuccessfulConect';
+import HotJobC from '../components/Pages/HotJobs';
+import ConectC from '../components/Pages/Conect';
+import CoursesC from '../components/Pages/Courses';
+import FavoritsC from '../components/Pages/Favorits';
+import ContactUsC from '../components/Pages/ContactUs';
+import FacebookAndWatsaapC from '../components/Plugins/FacebookAndWatsaap';
+import SearchJobLocationC from '../components/Pages/SearchJobLocation';
 const AppNavigator = createStackNavigator({
   LoginPage: {
     screen: LoginPageC,
@@ -29,7 +31,10 @@ const AppNavigator = createStackNavigator({
   SuccessfulConectPage:{
     screen:SuccessfulConectC
   },
-  
+  SearchJobLocationCPage: {
+    screen: SearchJobLocationC,
+  },
+
   ConectPage:{
     screen:ConectC
   }

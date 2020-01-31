@@ -1,7 +1,7 @@
-import React ,{component} from 'react';
-import { Platform , StyleSheet, Text, Button, Alert, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { Icon,SocialIcon } from 'react-native-elements'
-import { LinearGradient } from 'expo-linear-gradient';
+
 
 export default class Footer extends React.Component {
     constructor(props){
