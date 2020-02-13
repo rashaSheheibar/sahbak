@@ -1,39 +1,11 @@
 import React ,{component} from 'react';
 import { Platform , StyleSheet, Text, Button, Image ,Alert, View,FlatList, TextInput,ScrollView } from 'react-native';
 import { Icon,SocialIcon } from 'react-native-elements'
-import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
-import Logo from '../Pages/Logo';
-import SearchEng from '../Plugins/SearchEngine'
-import Footer from '../Plugins/Footer'
-import Topic from '../Plugins/Topics'
 
 
-const DATA = [
-  {
-    image: '../../assets/images/image1.png',
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'לחברת אונליין באשקלון דרוש/ה מנהל/ת הדרכה',
-    descriptionForJob:' מתן שירות לאורחים במחלקות מזון ומשקאות במלון.',
-    descriptionForTermsAndBenefits:'מגוון אפשרויות קידום ופיתוח.אחראי חצי שנה מענק התמדה של 3000 שקל. עבודה מועדפת לחיילם/ת משוחררים/ות',
-    
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'לחברת אונליין באשקלון דרוש/ה מנהל/ת הדרכה',
-    descriptionForJob:' מתן שירות לאורחים במחלקות מזון ומשקאות במלון.',
-    descriptionForTermsAndBenefits:'מגוון אפשרויות קידום ופיתוח.אחראי חצי שנה מענק התמדה של 3000 שקל. עבודה מועדפת לחיילם/ת משוחררים/ות',
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'לחברת אונליין באשקלון דרוש/ה מנהל/ת הדרכה',
-    descriptionForJob:' מתן שירות לאורחים במחלקות מזון ומשקאות במלון.',
-    descriptionForTermsAndBenefits:'מגוון אפשרויות קידום ופיתוח.אחראי חצי שנה מענק התמדה של 3000 שקל. עבודה מועדפת לחיילם/ת משוחררים/ות',
-  
-  },
-];
 
-function Item({ title}) {
+function Item({ title, location,salary,availability,pic}) {
   return (
     
     <View style={styles.item}>
@@ -49,8 +21,10 @@ function Item({ title}) {
                       </View> 
         </View> 
         <Image
+                source={{uri: pic}}
                 style={{width:'100%',flex:1,paddingTop:0,borderTopLeftRadius:10,borderTopRightRadius:10}}
-                source={require('../../assets/images/image1.png')}
+                
+               
             
         />
         <View style={{flex: 1, flexDirection: 'row', alignItems:"center",justifyContent: 'center',padding:10,}}>
@@ -78,7 +52,7 @@ function Item({ title}) {
                       color='blue' />
                   </View>
           <View  style={{width:"21%", alignItems:"flex-end"}}>
-                  <Text style={styles.paragraph}>אשדוד </Text>
+                  <Text style={styles.paragraph}>{location} </Text>
               
           </View>
           <View >
@@ -88,7 +62,7 @@ function Item({ title}) {
               />
           </View>
           <View  style={{width:"22%", alignItems:"flex-end"}}>
-                  <Text style={styles.paragraph}>40-50 </Text>
+               <Text style={styles.paragraph}>{salary}</Text>
               
           </View>
           <View style={{width:"10%", alignItems:"flex-end"}}>
@@ -97,7 +71,7 @@ function Item({ title}) {
                       color='blue' />
           </View>
           <View  style={{flex: 1, alignItems:"flex-end"}}>
-                  <Text style={styles.paragraph}> חצי משרה </Text>
+                  <Text style={styles.paragraph}> {availability}  </Text>
               
           </View>
       </View>
@@ -134,23 +108,60 @@ function Item({ title}) {
 export default class PartHotj extends React.Component {
     constructor(props){
         super(props) 
+        this.state ={ isLoading: true}
     }
   
+   componentDidMount(){
+    return fetch('https://jobus.herokuapp.com/joblist')
+      .then((response) => response.json())
+      .then((responseJson) => {
+
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.jobs,
+        }, function(){
+
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+  
+
+
+
+
+
+ 
    
     render() {
         return (
          
           <View style={styles.container}>
             
-           
+            
 
             <FlatList
+                data={this.state.dataSource}
                 style={{backgroundColor:'white'}}
-                data={DATA}
-                renderItem={({ item }) => <Item  title={item.title}  />}
+                renderItem={({ item }) => <Item 
+                     title={item.title}  
+                     location={item.location}
+                     salary={item.salary}
+                     availability={item.availability}
+                     pic={item.image}
+                     
+  
+               />}
                 keyExtractor={item => item.id}
                 
             />
+
+
+
+
             <View style={{width: '15%', height: 33,alignItems:"flex-start",paddingStart:5}}>
                       <View style={styles.IconKeyboardArrowUp}>
                         <Icon
@@ -216,7 +227,7 @@ const styles = StyleSheet.create({
     resizeMode: 'stretch'
   },
   paragraph: {
-    fontSize: 18,
+    fontSize: 12,
     color:"black",
     justifyContent: 'center', 
   },

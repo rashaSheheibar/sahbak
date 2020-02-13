@@ -15,6 +15,7 @@ import FooterP from '../Plugins/Footer';
 export default class SearchJobLocation extends React.Component {
     constructor(props){
         super(props) 
+        
     }
     render() {
         return (

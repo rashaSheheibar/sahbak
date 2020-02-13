@@ -1,6 +1,6 @@
 import React ,{component} from 'react';
 import { Platform , StyleSheet, Text, Image ,Alert, View,FlatList, TextInput,ScrollView,SafeAreaView  } from 'react-native';
-import { Icon,SocialIcon,Button,CheckBox  } from 'react-native-elements'
+import { Icon,SocialIcon,Button,CheckBox  } from 'react-native-elements';
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
 import LogoWithCloseP from '../Plugins/LogoWithClose'
@@ -14,13 +14,160 @@ export default class LogIn extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      firstName:"",
+      emailAddress: "", 
+      age:"",
+      AvailabilityForWork:"",
+      WhereDoYouWantToWork:"",
+      passWord: "",
+      WriteMoreTimePassword:"",
       value: false,
    }    
 }
+
+validate=(text,type)=>{
+  if(type=='FirstName'){
+    if(/[^0-9]+$/.test(text)){
+      this.state.firstName=text;
+      console.log("name good")
+    }else{
+      this.state.firstName=null;
+      console.log("name  not good")
+    }
+  }else if(type=='Email'){
+    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text)){
+      this.state.emailAddress=text;
+      console.log("email good")
+    }else{
+      this.state.emailAddress=null;
+      console.log("email not good")
+    }
+  }else if(type='AgeTemp'){
+    if(/^[0-9][0-9]$/.test(text)){
+      this.state.age=text;
+      console.log("number good")
+    }else{
+      this.state.age=null;
+
+      console.log("number not good")
+    }
+  }else if(type=='AvailabilityForWork'){
+    if(/[^0-9]+$/.test(text)){
+      this.state.AvailabilityForWork=text;
+      console.log("meyadet 3voda good")
+    }else{
+      this.state.AvailabilityForWork=null;
+      console.log(" meyadit 3voda not good")
+    }
+  }else if(type='WhereDoYouWantToWork'){
+    if(/[^0-9]+$/.test(text)){
+      this.state.WhereDoYouWantToWork=text;
+      console.log("location good")
+    }else{
+      this.state.WhereDoYouWantToWork=null;
+      console.log("location not good")
+    }
+  }else if(type='password'){
+      this.state.passWord=text;
+  }else if(type='MoreTimePass'){
+    this.state.WriteMoreTimePassword=text;
+}
+
+
+}
+/*
+validate=(text)=>{
+  console.log(text);
+  let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+  if(reg.test(text) === false)
+  {
+  console.log("Email is Not Correct");
+  return false;
+    }
+  else {
+    this.setState({emailAddress:text})
+    console.log("Email is Correct");
+    alert("האיימל נכון")
+  }
+  
+}*/
+
 OnPresHere(){
   this.setState({
     value:!this.state.value})
 }
+onPressSubmit() {
+   this.onFetchLoginRecords();
+}
+async onFetchLoginRecords() {
+  var data = { 
+  first_name: this.state.firstName, 
+  email:this.state.emailAddress, 
+  password: this.state.passWord,
+  city: this.state.WhereDoYouWantToWork,
+ 
+    
+  };
+  try {
+   let response = await fetch(
+    "https://jobus.herokuapp.com/users/register",
+    {
+      method: "POST",
+      headers: {
+       "Accept": "application/json",
+       "Content-Type": "application/json"
+      },
+     body: JSON.stringify(data)
+   }
+  );
+   
+  if (response.status >= 200 && response.status < 300 &&(this.state.value= true)&&(this.state.firstName!=null)&&(this.state.emailAddress!=null)&&(this.state.age!=null)&&(this.state.AvailabilityForWork!=null)&&(this.state.WhereDoYouWantToWork!=null)&&(this.state.passWord=this.state.WriteMoreTimePassword)){
+   
+  
+    alert(" הצלחתה להתחבר....כנס\י לאימיל כדי להפעיל את החשבון ");
+    this.props.navigation.navigate("ConectPage")
+  }else {
+    
+    alert("הנתונים לא נכונים ");
+  
+  }
+  
+ } catch (errors) {
+
+   alert(errors);
+  } 
+}
+/*
+CreateNewUser(){
+  // TODO : check if all paramters are exist,
+  // -yes:do the http request
+  // -no: make alert messege "missing parameters"
+  fetch('https://jobus.herokuapp.com/users/register/', {
+  method: 'POST',
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    firstParam: 'rasha',
+    last_name: 'shehibar',
+    email: 'rasha.15.90@gmail.com',
+    phone: '0545734554',
+    password: '123456',
+    city: 'haifa',
+    birthday: '15.11.1990',
+    gender: 'fmale',
+  }),
+}).then((response) => response.json())
+.then((responseJson) => {
+  console.log(responseJson)
+ 
+})
+.catch((error) => {
+  console.error(error);
+});;
+}
+*/
     render() {
         return (
          
@@ -36,6 +183,7 @@ OnPresHere(){
                   }}
                 />
         <LogoWithCloseP/>
+      <SafeAreaView style={styles.SafeView}>
         <ScrollView style={styles.scrollView}> 
             <Text style={styles.TxtStyle}>התחבר</Text>
             <View style={{paddingTop:10,width:"100%", flexDirection: "row",padding:5,paddingStart:'10%',alignContent:"space-between",alignItems:"center"}}>
@@ -71,7 +219,9 @@ OnPresHere(){
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
                         underlineColorAndroid='transparent'
+                        onChangeText={(text) => this.validate( text,"FirstName")}
                       />
+                      
                   </View>
                   <View style={{padding:6}}></View>
                   <View style={ {padding:15,width:'85%',height:50,backgroundColor:"white", alignContent:"flex-end", borderWidth: 1,borderRadius:30,borderColor: 'white'}}>
@@ -81,6 +231,8 @@ OnPresHere(){
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
                         underlineColorAndroid='transparent'
+                        onChangeText={(text) => this.validate( text,"Email")}
+                     
                       />
                   </View>
                   <View style={{padding:6}}></View>
@@ -90,7 +242,9 @@ OnPresHere(){
                         size={8}
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
-                        underlineColorAndroid='transparent'
+                        underlineColorAndroid='transparents'
+                        onChangeText={(text) => this.validate( text,"AgeTemp")}
+                        
                       />
                   </View>
                   <View style={{padding:6}}></View>
@@ -101,6 +255,7 @@ OnPresHere(){
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
                         underlineColorAndroid='transparent'
+                        onChangeText={(text) => this.validate( text,"AvailabilityForWork")}
                       />
                   </View>
                   <View style={{padding:6}}></View>
@@ -111,6 +266,7 @@ OnPresHere(){
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
                         underlineColorAndroid='transparent'
+                        onChangeText={(text) => this.validate( text,"WhereDoYouWantToWork")}
                       />
                   </View>
                   <View style={{padding:6}}></View>
@@ -122,16 +278,19 @@ OnPresHere(){
                         secureTextEntry={true}
                         style={styles.textInputStyle}
                         underlineColorAndroid='transparent'
+                        onChangeText={(text) => this.validate( text,"password")}
                       />
                   </View>
                   <View style={{padding:6}}></View>
-                  <View style={ {padding:15,width:'85%',height:50,backgroundColor:"white", alignContent:"flex-end", borderWidth: 1,borderRadius:30,borderColor: 'white'}}>
+                  <View style={ {padding:15,width:'85%',height:50,backgroundColor:"white", alignContent:"flex-start", borderWidth: 1,borderRadius:30,borderColor: 'white'}}>
                         <TextInput 
                         placeholder = "וודא\י סיסמה:" 
                         size={8}
+                        secureTextEntry={true}
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
                         underlineColorAndroid='transparent'
+                        onChangeText={(text) => this.validate( text,"MoreTimePass")}
                       />
                   </View>
                   <View style={{padding:6}}></View>
@@ -152,8 +311,7 @@ OnPresHere(){
                   <View style={{padding:6}}></View>
                   <View style={{width:"50%",height:40,padding:10,alignItems:"center",borderWidth: 1, borderRadius:30,borderColor: '#16fcef'}}>
                       <Text style={{color:'white',fontWeight:"bold"}}
-                            onPress={()=>{this.props.navigation.navigate("SuccessfulConectPage")}}
-                      
+                           onPress={this.onPressSubmit.bind(this)}      
                       > יאללה, תרשמו אותי   </Text>
                   </View>
             </View>
@@ -161,6 +319,7 @@ OnPresHere(){
             <HotJobsPartp/>
             <Footer/>
         </ScrollView>
+        </SafeAreaView>
       </View>    
 
    
@@ -173,11 +332,13 @@ OnPresHere(){
 const styles = StyleSheet.create({
   container: {
       flex: 1,
+      
      
     },
     scrollView: {
      
       marginHorizontal: 0,
+      marginTop: Constants.statusBarHeight,
     },
     Header:{
       width:'80%',
@@ -248,6 +409,8 @@ const styles = StyleSheet.create({
   
     textInputStyle:{
       padding:0,
+      textAlign:'right',
+      
     },
     TxtStyle:{
       fontSize: 19, 

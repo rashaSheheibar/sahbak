@@ -36,7 +36,7 @@ const DATA = [
     },
   ];
   
-  function Item({ title,image }) {
+  function Item({ location }) {
     return (
     
       <View style={styles.item}>
@@ -46,7 +46,7 @@ const DATA = [
                     source={require('../../assets/images/image1.png')} />
           </View>
           <View  style={styles.TextInfrontImage}>
-            <Text style={styles.titleNameLocation}>{title}</Text>
+            <Text style={styles.titleNameLocation}>{location}</Text>
           </View>
          
           
@@ -61,16 +61,39 @@ const DATA = [
 export default class JobsByLocationP extends React.Component {
     constructor(props){
         super(props)
+        this.state ={ isLoading: true}
     }
+    componentDidMount(){
+        return fetch('https://jobus.herokuapp.com/joblist')
+          .then((response) => response.json())
+          .then((responseJson) => {
+    
+            this.setState({
+              isLoading: false,
+              dataSource: responseJson.jobs,
+            }, function(){
+    
+            });
+    
+          })
+          .catch((error) =>{
+            console.error(error);
+          });
+      }
     render() {
         return (
             <View style={styles.container}>
                
                 <FlatList
-                    style={{backgroundColor:'white'}}
-                    data={DATA}
-                    renderItem={({ item }) => <Item  title={item.title} image={item.image}   />}
-                    keyExtractor={item => item.id}
+                      data={this.state.dataSource}
+                      style={{backgroundColor:'white'}}
+                      renderItem={({ item }) => <Item 
+                           location={item.location}  
+                           
+                           
+        
+                     />}
+                      keyExtractor={item => item.id}
                     
                 />
                 

@@ -59,7 +59,7 @@ export default class SearchEngine extends React.Component {
 
         <View 
             style={styles.innerAeraView}
-            onStartShouldSetResponder={() => alert('Grade List')}>
+            onStartShouldSetResponder={() => {this.props.navigation.navigate("locationSearch")}}>
              <View style={{width: "84%", height: 29, backgroundColor: 'white'}} >
                 <View style={{flex: 1, flexDirection: 'row'}}>  
                   <View style={{flex: 1}}>
@@ -105,9 +105,10 @@ export default class SearchEngine extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
+        paddingTop:40,
         padding:0,
         width:"100%",
-        height:300,
+        height:330,
     },
     TxtStyle:{
       fontSize: 19, 

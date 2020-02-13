@@ -12,6 +12,10 @@ import FavoritsC from '../components/Pages/Favorits';
 import ContactUsC from '../components/Pages/ContactUs';
 import FacebookAndWatsaapC from '../components/Plugins/FacebookAndWatsaap';
 import SearchJobLocationC from '../components/Pages/SearchJobLocation';
+import locationSearchP from '../components/Pages/locationSearch';
+import ProfilePartp from '../components/Plugins/ProfilePart';
+import ForgetPassC from '../components/Pages/ForgetPass';
+
 const AppNavigator = createStackNavigator({
   LoginPage: {
     screen: LoginPageC,
@@ -31,10 +35,18 @@ const AppNavigator = createStackNavigator({
   SuccessfulConectPage:{
     screen:SuccessfulConectC
   },
+  locationSearchPPage:{
+    screen:locationSearchP
+  },
   SearchJobLocationCPage: {
     screen: SearchJobLocationC,
   },
-
+  ProfilePartpPage: {
+    screen: ProfilePartp,
+  },
+  ForgetPassPage: {
+    screen: ForgetPassC,
+  },
   ConectPage:{
     screen:ConectC
   }
