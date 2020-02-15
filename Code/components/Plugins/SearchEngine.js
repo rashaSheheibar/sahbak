@@ -31,7 +31,7 @@ export default class SearchEngine extends React.Component {
                       name='favorite'
                       color='blue' />
                   </View>
-              </View>  
+              </View>
               </View>
         </View>
 

@@ -27,7 +27,7 @@ render() {
                         left: 0,
                         right: 0,
                         top: 0,
-                        height: "100%",
+                        height: 2000,
                     }}
                     /> 
 
@@ -211,9 +211,114 @@ render() {
                     </View>
                   </View>
                
+                <View style={{flex: 1, flexDirection: 'row',justifyContent:"space-between"}}>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  מצחיק </Text>
+                    </View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  דייקנות </Text>
+                    </View>
+                    <View style={{width:'25%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}> שאיפה לגדולות </Text>
+                    </View>
+                    <View style={{width:'30%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>מוסר עבודה גבוהה</Text>
+                    </View>
+                </View>
+                <View style={{paddingTop:10,flex: 1, flexDirection: 'row',justifyContent:"space-between"}}>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  אחראיות </Text>
+                    </View>
+                    <View style={{width:'20%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  חושב קדימה </Text>
+                    </View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  מתקתק </Text>
+                    </View>
+                    <View style={{width:'26%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>יודע לקבל ביקורת </Text>
+                    </View>
+                </View>
+                <View style={{paddingTop:10,flex: 1, flexDirection: 'row-reverse'}}>
+                    <View style={{width:'20%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  עבודת צוות</Text>
+                    </View>
+                    <View style={{paddingStart:10}}></View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  מנהיגות </Text>
+                    </View>
+                   
+                </View>
 
-
-
+                <View style={{paddingTop:10,flex: 1, flexDirection: 'row-reverse', alignContent:'space-between' }}>
+                    <View style={{width: '59%', height: 30}} >
+                        
+                      <View style={{width: '100%', height: 20,alignItems:'center'}} >
+                        <View style={{flex: 1, flexDirection: 'row'}}>
+                            <View style={{width: '80%', height: 20}} >
+                                <Text style={{fontWeight:'bold',alignItems:'flex-start',color:'white',fontSize: 13}}> 
+                                תחומי עניין:  </Text>
+                            </View>
+                            <View style={{width: '20%', height: 20}} >
+                                    <View style={styles.loveIcon}>
+                                        <Icon
+                                        size={22}  
+                                        name='add'
+                                        color='#f60f69' />
+                                    </View>
+                            </View>
+                    
+                        </View>
+                      </View>  
+                    </View>
+                  </View>
+               
+                <View style={{flex: 1, flexDirection: 'row',justifyContent:"space-between"}}>
+                    <View style={{width:'13%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  אומנות </Text>
+                    </View>
+                    <View style={{width:'25%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  סרטים וקולנוע </Text>
+                    </View>
+                    <View style={{width:'13%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  ספורט  </Text>
+                    </View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>מחשבים  </Text>
+                    </View>
+                </View>
+                <View style={{paddingTop:10,flex: 1, flexDirection: 'row',justifyContent:"space-between"}}>
+                    <View style={{width:'13%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  אופנה </Text>
+                    </View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>   תאטרון </Text>
+                    </View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  מוסיקה </Text>
+                    </View>
+                    <View style={{width:'20%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>אוכל ובישול   </Text>
+                    </View>
+                </View>
+                <View style={{paddingTop:10,flex: 1, flexDirection: 'row-reverse'}}>
+                    <View style={{width:'10%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  טבע </Text>
+                    </View>
+                    <View style={{paddingStart:10}}></View>
+                    <View style={{width:'15%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  קריאה </Text>
+                    </View>
+                    <View style={{paddingStart:10}}></View>
+                    <View style={{width:'13%', height: 20, backgroundColor: '#052172'}} >
+                       <Text style={styles.SubTitle}>  גלישה </Text>
+                    </View>
+                   
+                </View>
+                <View style={{paddingTop:30}}></View>
+                <View style={styles.SaveView} >
+                       <Text style={styles.SaveText}>  שמור </Text>
+                    </View>
 
              </ScrollView>
     </View>
@@ -244,9 +349,13 @@ const styles = StyleSheet.create({
   SubTitle:{
     textAlign: 'right',
     color:'white',
-    fontSize: 13,
-    
-      
+    fontSize: 13,  
+  },
+  SaveText:{
+    paddingTop:5,
+    textAlign: 'center',
+    color:'white',
+    fontSize: 15,    
   },
   loveIcon:{
     alignItems:'flex-start', 
@@ -270,5 +379,13 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     paddingEnd:10,
   },
+  SaveView:{
+    width:'20%', 
+    height: 30, 
+    backgroundColor: '#d436ab',
+    alignItems:'center',
+    borderRadius:15,
+  },
+
  
 })

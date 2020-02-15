@@ -155,7 +155,7 @@ export default class PartHotj extends React.Component {
                      
   
                />}
-                keyExtractor={item => item.id}
+                keyExtractor={item => item._id}
                 
             />
 

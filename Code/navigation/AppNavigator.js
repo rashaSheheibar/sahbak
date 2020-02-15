@@ -15,7 +15,8 @@ import SearchJobLocationC from '../components/Pages/SearchJobLocation';
 import locationSearchP from '../components/Pages/locationSearch';
 import ProfilePartp from '../components/Plugins/ProfilePart';
 import ForgetPassC from '../components/Pages/ForgetPass';
-
+import logoWithMessagep from '../components/Plugins/logoWithMessage';
+import SearchBySpecialtyP from '../components/Pages/SearchBySpecialty';
 const AppNavigator = createStackNavigator({
   LoginPage: {
     screen: LoginPageC,
@@ -38,8 +39,14 @@ const AppNavigator = createStackNavigator({
   locationSearchPPage:{
     screen:locationSearchP
   },
+  logoWithMessagePage:{
+    screen:logoWithMessagep
+  },
   SearchJobLocationCPage: {
     screen: SearchJobLocationC,
+  },
+  SearchBySpecialtyPage: {
+    screen: SearchBySpecialtyP,
   },
   ProfilePartpPage: {
     screen: ProfilePartp,
@@ -53,6 +60,8 @@ const AppNavigator = createStackNavigator({
 },{
   initialRouteName: 'ConectPage',
 })
+
+
 /*
 export default createAppContainer(
   createSwitchNavigator({
