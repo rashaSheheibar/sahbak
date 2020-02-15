@@ -1,5 +1,5 @@
 import React ,{component} from 'react';
-import { Platform , StyleSheet, Text, Button, Image ,Alert, View,FlatList, TextInput,ScrollView } from 'react-native';
+import { Platform ,SafeAreaView, StyleSheet, Text, Button, Image ,Alert, View,FlatList, TextInput,ScrollView,ToastAndroid } from 'react-native';
 import { Icon,SocialIcon ,CheckBox} from 'react-native-elements'  
 import { LinearGradient } from 'expo-linear-gradient';
 import Constants from 'expo-constants';
@@ -8,6 +8,9 @@ import TopicC from '../Plugins/TopicWithoutPic'
 import HotJobsPartp from '../Plugins/PartHotj'
 import LogoWithCloseP from '../Plugins/LogoWithClose'
 import { StackNavigator } from 'react-navigation';
+
+
+
 
 export default class Conect extends React.Component {
 
@@ -19,10 +22,12 @@ export default class Conect extends React.Component {
         emailAddress: "",           
     }   
   }
-  OnPresHere(){
-    this.setState({  
-    })
+  goToTop = () => {
+    // console.log(this)
+    ToastAndroid.show('Please Sing in first!', ToastAndroid.SHORT);
+    this.scroll.scrollTo({x: 0, y: 0, animated: true});
   }
+  
   validate=(text,type)=>{
     if(type=='FirstName'){
       if(/[^0-9]+$/.test(text)){
@@ -99,7 +104,9 @@ render() {
     <LogoWithCloseP/>
 
       
-      <ScrollView>
+      <ScrollView 
+        ref={(c) => { this.scroll  =c}}
+      >
           <Text style={styles.TxtStyle}>התחבר</Text>
 
           <View style={{ flexDirection: 'row',justifyContent: 'space-between', flex:1, margin: 10 }}>
@@ -196,7 +203,9 @@ render() {
         
         </View>
         <TopicC/>
-        <HotJobsPartp/>
+        <View>
+          <HotJobsPartp onRef={ref => (this.parentReference = ref)}  parentReference = {this.goToTop.bind(this)}/>
+        </View>
         <Footer/>
 
       </ScrollView>
