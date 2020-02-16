@@ -18,8 +18,10 @@ export default class Conect extends React.Component {
       super(props)
       this.state = {
         value: false,
-        firstName:"",
-        emailAddress: "",           
+        password:"",
+        emailAddress: "", 
+        
+
     }   
   }
   goToTop = () => {
@@ -29,21 +31,15 @@ export default class Conect extends React.Component {
   }
   
   validate=(text,type)=>{
-    if(type=='FirstName'){
-      if(/[^0-9]+$/.test(text)){
-        this.state.firstName=text;
-        console.log("name good")
-      }else{
-        this.state.firstName=null;
-        console.log("name  not good")
-      }
+    if(type=='password'){
+      this.state.password=text;
     }else if(type=='Email'){
       if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text)){
         this.state.emailAddress=text;
-        console.log("email good")
+        
       }else{
         this.state.emailAddress=null;
-        console.log("email not good")
+        
       }
     }
   }
@@ -52,39 +48,45 @@ export default class Conect extends React.Component {
     this.onFetchLoginRecords();
  }
  async onFetchLoginRecords() {
-   var data = { 
+ 
+  var data = { 
    email:this.state.emailAddress, 
-   password: this.state.passWord,
-   
-  
+   password: this.state.password,
      
-   };
-   try {
+   }; 
+   try { 
     let response = await fetch(
-     "https://jobus.herokuapp.com/users/login",
-     {
+     "https://jobus.herokuapp.com//users/login", {
        method: "POST",
        headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
        },
       body: JSON.stringify(data)
+     
     }
-   );
     
-   if (response.status >= 200 && response.status < 300 &&(this.state.firstName!=null)&&(this.state.emailAddress!=null)){ 
-        this.props.navigation.navigate("ConectPage")
+  
+   );
+   response.jason()
+   console.log("rasha")
+  /* 
+   //console.log(response.json());
+   //AsyncStorage.setItem("success", "true");
+   if (response.status=200 ){ 
+    console.log(response.json())
+       // this.props.navigation.navigate("ConectPage")
    }else {
-    this.props.navigation.navigate("HotJobPage")
-     alert("הנתונים  נכונים ");
+     alert("הנתונים לא נכונים ");
    
-   }
-   
+   }*/
   } catch (errors) {
  
     alert(errors);
-   } 
- }
+   }
+
+
+ } 
 
 
 render() {
@@ -129,12 +131,12 @@ render() {
          <View style={{paddingTop:20, flexDirection: 'column',justifyContent: 'space-between', width:'100%',alignItems:'center' }}>
               <View style={ {padding:15,width:'80%',height:50,backgroundColor:"white", alignContent:"flex-end", borderWidth: 1,borderRadius:30,borderColor: 'white'}}>
                   <TextInput 
-                    placeholder = " שם: " 
+                    placeholder = " email: " 
                     size={8}
                     placeholderTextColor = "gray"
                     style={styles.TextInputStyle}
                     underlineColorAndroid='transparent'
-                    onChangeText={(text) => this.validate( text,"FirstName")}
+                    onChangeText={(text) => this.validate( text,"Email")}
                       />
               </View>
               <View style={{height:15}}></View>
@@ -147,7 +149,8 @@ render() {
                     secureTextEntry={true}
                     style={styles.TextInputStyle}
                     underlineColorAndroid='transparent'
-                    onChangeText={(text) => this.validate( text,"Email")}
+                    onChangeText={(text) => this.validate( text,"password")}
+                   
                       />
               </View>
           </View>
