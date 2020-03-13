@@ -208,7 +208,6 @@ render() {
         <TopicC/>
         <View>
           <HotJobsPartp onRef={ref => (this.parentReference = ref)}  parentReference = {this.goToTop.bind(this)}/>
-        
         </View>
         <Footer/>
 

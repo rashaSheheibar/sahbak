@@ -183,7 +183,7 @@ CreateNewUser(){
                   }}
                 />
         <LogoWithCloseP/>
-     
+      <SafeAreaView style={styles.SafeView}>
         <ScrollView style={styles.scrollView}> 
             <Text style={styles.TxtStyle}>התחבר</Text>
             <View style={{paddingTop:10,width:"100%", flexDirection: "row",padding:5,paddingStart:'10%',alignContent:"space-between",alignItems:"center"}}>
@@ -242,8 +242,9 @@ CreateNewUser(){
                         size={8}
                         placeholderTextColor = "gray"
                         style={styles.textInputStyle}
-                        underlineColorAndroid='transparent'
+                        underlineColorAndroid='transparents'
                         onChangeText={(text) => this.validate( text,"AgeTemp")}
+                        
                       />
                   </View>
                   <View style={{padding:6}}></View>
@@ -315,16 +316,10 @@ CreateNewUser(){
                   </View>
             </View>
             <TopicC/>
-            
-            <View>
-              <HotJobsPartp onRef={ref => (this.parentReference = ref)} />
-            
-            </View>
+            <HotJobsPartp/>
             <Footer/>
-
-
         </ScrollView>
-     
+        </SafeAreaView>
       </View>    
 
    

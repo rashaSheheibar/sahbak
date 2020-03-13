@@ -58,7 +58,7 @@ const AppNavigator = createStackNavigator({
     screen:ConectC
   }
 },{
-  initialRouteName: 'HotJobPage',
+  initialRouteName: 'ConectPage',
 })
 
 

@@ -34,7 +34,7 @@ const DATA = [
   },
 ];
 */
-function Item({ pic,title, descriptionForJob ,descriptionForTermsAndBenefits,SkillsRequired,location,salary,availability}) {
+function Item({ pic,IconPic,title, descriptionForJob ,descriptionForTermsAndBenefits,SkillsRequired,location,salary,availability}) {
   return (
     
     <View style={styles.item}>
@@ -64,7 +64,7 @@ function Item({ pic,title, descriptionForJob ,descriptionForTermsAndBenefits,Ski
           <View >
                 <Image
                       style={{flex:1,resizeMode:'cover'}}
-                    
+                      source={{uri: IconPic}} 
                 />
               
           </View>
@@ -202,14 +202,14 @@ export default class HotJobs extends React.Component {
                       height: "100%",
                     }}
                   />
-              <View style={{ width:'100%',height:50,flexDirection: 'row-reverse', paddingTop:10 }}>
+              <View style={{ width:'100%',height:50,flexDirection: 'row-reverse', paddingTop:0  }}>
                     
-                    <View style={{width:'60%', justifyContent: 'flex-end' }} >
+                    <View style={{width:'65%', justifyContent: 'flex-end' }} >
                         <Logo/>
 
                     </View>
                 
-                    <View style={{width:'40%', justifyContent: 'flex-start',height:50  }} >      
+                    <View style={{width:'35%', justifyContent: 'flex-start',height:50 , paddingTop:0 }} >      
                             <MenuC/>
                     </View>
                </View>
@@ -223,6 +223,8 @@ export default class HotJobs extends React.Component {
                   style={{backgroundColor:'white'}}
                   renderItem={({ item }) => <Item  
                                         pic={item.image}
+                                        IconPic={item._creator[company_logo]}
+                                       
                                         title={item.title} 
                                         descriptionForJob={item.description} 
                                         descriptionForTermsAndBenefits={item.descriptionForTermsAndBenefits} 
