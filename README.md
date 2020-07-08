@@ -22,5 +22,6 @@ The project is developed as part of the requirements for BS.C degree software en
 
 
 # Video
-[Click here to see the Video about Alpha report ](https://www.youtube.com/watch?v=2JUk_EGvxc8&feature=youtu.be)
-[Click here to see the Video about final report ](https://www.youtube.com/watch?v=l4O9_VYvdec&t=5s)
+**[Click here to see the Video about Alpha report ](https://www.youtube.com/watch?v=2JUk_EGvxc8&feature=youtu.be)
+
+**[Click here to see the Video about final report ](https://www.youtube.com/watch?v=l4O9_VYvdec&t=5s)
