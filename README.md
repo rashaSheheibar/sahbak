@@ -5,12 +5,12 @@ Developing a mobile app that serves as a leading platform for youth job search i
 # ShootScreens
 
 
-<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/Search.PNG" /><img width="150" height="200" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/Search2.PNG" />
-<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/searchResult.PNG" /> <img width="150" height="200" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/saveJobs.PNG" />
-<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/Profile.PNG" /><img width="150" height="200" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/profile2.PNG" /> 
-<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/logIn.PNG" /> <img width="150" height="200" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/jobDetail.PNG" /> 
-<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/job.jpg" /><img width="150" height="200" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/allJobs.jpg" />
-<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/chatPNG.PNG" /><img width="150" height="200" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/favorit.PNG" />
+<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/Search.PNG" /><img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/Search2.PNG" />
+<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/searchResult.PNG" /> <img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/saveJobs.PNG" />
+<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/Profile.PNG" /><img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/profile2.PNG" /> 
+<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/logIn.PNG" /> <img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/jobDetail.PNG" /> 
+<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/job.jpg" /><img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/allJobs.jpg" />
+<img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/chatPNG.PNG" /><img width="150" height="auto" src="https://github.com/rashaSheheibar/sahbak/blob/master/Images/favorit.PNG" />
 
 
 
