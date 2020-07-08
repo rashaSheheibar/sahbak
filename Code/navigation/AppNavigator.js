@@ -1,74 +1,70 @@
+
 import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import MainTabNavigator from './MainTabNavigator';
-import LoginPageC from '../components/Pages/LogIn';
-import SuccessfulConectC from '../components/Pages/SuccessfulConect';
-import HotJobC from '../components/Pages/HotJobs';
-import ConectC from '../components/Pages/Conect';
-import CoursesC from '../components/Pages/Courses';
-import FavoritsC from '../components/Pages/Favorits';
-import ContactUsC from '../components/Pages/ContactUs';
-import FacebookAndWatsaapC from '../components/Plugins/FacebookAndWatsaap';
-import SearchJobLocationC from '../components/Pages/SearchJobLocation';
-import locationSearchP from '../components/Pages/locationSearch';
-import ProfilePartp from '../components/Plugins/ProfilePart';
-import ForgetPassC from '../components/Pages/ForgetPass';
-import logoWithMessagep from '../components/Plugins/logoWithMessage';
-import SearchBySpecialtyP from '../components/Pages/SearchBySpecialty';
+import singIn from '../pages/singIn';
+import profile from '../pages/profile';
+import mainPage from '../pages/mainPage';
+import courses from '../pages/courses';
+import favorit from '../pages/favorit';
+import aboutUs from '../pages/aboutUs';
+import singUp from '../pages/singUp';
+import DemoPage from '../pages/DemoPage';
+import forgetPassword from '../pages/forgetPassword';
+import jobDetails from '../pages/jobDetails';
+import searhJobResults from '../pages/searhJobResults';
+import chatboot from '../pages/chatboot';
+import saveJobs  from '../pages/saveJobs';
+import sucssesSendJob from '../plugins/sucssesSendJob';
 
-const AppNavigator = createStackNavigator({
-  LoginPage: {
-    screen: LoginPageC,
+const AppNavigator = createStackNavigator({ 
+  SingIn:{
+    screen: singIn
   },
-  HotJobPage:{
-    screen:HotJobC
+  Profile:{
+    screen: profile
   },
-  CoursesPage:{
-    screen:CoursesC
+  Courses:{
+    screen: courses
   },
-  ContactUsPage:{
-    screen:ContactUsC
+  Favorit:{
+    screen: favorit
   },
-  FavoritsPage:{
-    screen:FavoritsC
+  SucssesSendJob:{
+    screen: sucssesSendJob
   },
-  SuccessfulConectPage:{
-    screen:SuccessfulConectC
+  SaveJobs:{
+    screen: saveJobs
   },
-  locationSearchPPage:{
-    screen:locationSearchP
+  SearhJobResults:{
+    screen: searhJobResults
   },
-  logoWithMessagePage:{
-    screen:logoWithMessagep
+  JobDetails:{
+    screen: jobDetails
   },
-  SearchJobLocationCPage: {
-    screen: SearchJobLocationC,
+  ForgetPassword:{
+    screen: forgetPassword
   },
-  SearchBySpecialtyPage: {
-    screen: SearchBySpecialtyP,
+  AboutUs:{
+    screen: aboutUs
   },
-  ProfilePartpPage: {
-    screen: ProfilePartp,
+  SingUp:{
+    screen: singUp
   },
-  ForgetPassPage: {
-    screen: ForgetPassC,
+  MainPage:{
+    screen: mainPage
   },
-  ConectPage:{
-    screen:ConectC
+  Chatboot:{
+    screen: chatboot
+  },
+  DemoPage:{
+    screen: DemoPage
   }
-},{
-  initialRouteName: 'HotJobPage',
-})
+},{ 
+    initialRouteName: 'SingIn', 
+    mode: 'modal',
+    headerMode: 'none', 
+  }
+)
 
-
-/*
-export default createAppContainer(
-  createSwitchNavigator({
-    // You could add another route here for authentication.
-    // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    Main: MainTabNavigator,
-  })
-);
-*/
 export default createAppContainer(AppNavigator);
